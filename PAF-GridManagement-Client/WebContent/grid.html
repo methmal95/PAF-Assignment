@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        
+        <title>Power Grid Management</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="grid.js"></script>
+        
+    </head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+  <a class="navbar-brand" href="#">ElectroGrid</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">| The Power Grid of the Country |<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+      
+      
+    </ul>
+    
+  </div>
+</nav>
+
+
+<div class="container">
+
+		<div class="row" style="margin:10px">
+			<div class="col-md-12">
+				<div class="card">
+				  <div class="card-header bg-primary">
+				    VIEW GRIDS
+				  </div>
+				  <div class="card-body">
+				   
+				    <button class="btn btn-block btn-dark" onclick="getDetails()">VIEW ALL</button>
+				  </div>
+				  <div class="card-footer">
+				  	<table class="table table-bordered table-striped table-hover" id="all_grids">
+						<thead>
+							<tr>
+								<th>Power Source</th>
+								<th>Area</th>
+								<th>Grid Code</th>
+								<th>Output</th>
+								<th>Station</th>
+								<th>Operator</th>
+								<th>Engineer</th>
+							</tr>
+						</thead>
+						<tbody>
+						
+						</tbody>
+					</table>
+				  </div>
+				</div>
+    
+			    
+			   
+				
+				
+					
+				</div>
+				<div class="col-md-12">
+				<div class="card">
+				  <div class="card-header bg-warning">
+				    VIEW GRID BY ID
+				  </div>
+				  <div class="card-body">
+				  <div id="error_msg">
+				  	
+				  </div>
+				    <div class="form-group">
+					    <label for="exampleInputPassword1">Enter Grid Id</label>
+					    <input type="text" class="form-control" id="grid_id" placeholder="Grid Id">
+				  	</div>
+				    <button class="btn btn-block btn-dark" onclick="getDetailsById()">VIEW GRID</button>
+				  </div>
+				  <div class="card-footer">
+				  	<table class="table table-bordered table-striped table-hover" id="one_grid">
+						<thead>
+							<tr>
+								<th>Power Source</th>
+								<th>Area</th>
+								<th>Grid Code</th>
+								<th>Output</th>
+								<th>Station</th>
+								<th>Operator</th>
+								<th>Engineer</th>
+							</tr>
+						</thead>
+						<tbody>
+						
+						</tbody>
+					</table>
+				  </div>
+				</div>
+				</div>
+			</div>
+			<div class="row" style="margin:10px">
+			<div class="col-md-12">
+				<div class="card">
+				  <div class="card-header bg-success">
+				    INSERT GRIDS TO ELECTROGRID
+				  </div>
+				  <div class="card-body">
+				  <div id="pro_add_msg">
+				  	
+				  </div>
+				    <div class="form-group">
+					    <label for="exampleInputPassword1">Enter Power Source</label>
+					    <input type="text" class="form-control" id="power_source" placeholder="Power Source">
+				  	</div>
+				  	<div class="form-group">
+					    <label for="exampleInputPassword1">Enter Area</label>
+					    <input type="text" class="form-control" id="grid_area" placeholder="Area">
+				  	</div>
+				  	<div class="form-group">
+					    <label for="exampleInputPassword1">Enter Grid Code</label>
+					    <input type="text" class="form-control" id="grid_code" placeholder="Grid Code">
+				  	</div>
+				  	<div class="form-group">
+					    <label for="exampleInputPassword1">Enter Grid Output</label>
+					    <input type="text" class="form-control" id="grid_output" placeholder="Grid Output">
+				  	</div>
+					  <div class="form-group">
+					    <label for="exampleInputPassword1">Enter Grid Station</label>
+					    <input type="text" class="form-control" id="grid_station" placeholder="Grid Station">
+				  	</div>
+					  <div class="form-group">
+					    <label for="exampleInputPassword1">Enter Grid Operator</label>
+					    <input type="text" class="form-control" id="grid_operator" placeholder="Grid Operator">
+				  	</div>
+					  <div class="form-group">
+					    <label for="exampleInputPassword1">Enter Grid Engineer</label>
+					    <input type="text" class="form-control" id="grid_engineer" placeholder="Grid Engineer">
+				  	</div>
+					<button class="btn btn-block btn-dark" onclick="addGrids()">ADD NEW GRID</button>
+				  </div>
+				  
+				</div>
+    
+			    
+			   
+				
+				
+					
+				</div>
+				<div class="col-md-12">
+				<div class="card">
+				  <div class="card-header bg-danger">
+				    REMOVE GRID BY ID
+				  </div>
+				  <div class="card-body">
+				  <div id="pro_del_msg">
+				  	
+				  </div>
+				    <div class="form-group">
+					    <label for="exampleInputPassword1">Enter grid Id</label>
+					    <input type="text" class="form-control" id="del_grid_id" placeholder="Grid Id">
+				  	</div>
+				    <button class="btn btn-block btn-dark" onclick="removeGridById()">DELETE GRID</button>
+				  </div>
+				  
+				</div>
+				</div>
+			</div>
+		</div>
+</body>
+    
+
+</html>
